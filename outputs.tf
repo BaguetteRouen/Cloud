@@ -50,3 +50,13 @@ output "ec2_instance_profile" {
 output "minecraft_server" {
   value = "${module.ec2_minecraft[0].public_ip}:${var.mc_port}"
 }
+
+output "cloudwatch_metric_alarm_arns" {
+  description = "List of ARNs of the cloudwatch metric alarm"
+  value = module.all_cis_alarms.cloudwatch_metric_alarm_arns
+    }
+  
+output "cloudwatch_metric_alarm_ids" {
+  description = "List of IDs ofthe Cloudwatch metric alarm"
+  value = module.all_cis_alarms.cloudwatch_metric_alarm_ids
+    }
