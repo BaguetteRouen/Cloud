@@ -1,4 +1,7 @@
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
+  aws_access_key_id=ASIA4NX53ALYB4GWAA64
+aws_secret_access_key=SNwVSaD5dCBOFP1yTgGVbryfrtlAuYnHSKNWoH26
+aws_session_token=FwoGZXIvYXdzEJL//////////wEaDJNm6qDI+G2Wfb500SLJASnXy3KWnbyVdn/3ubl3t/0ook382PUZvXVYwYyddfSwfI4puwm8T/uBICUSaCwkZ9aWQD/Fh8r2bhlS/Rj5bGh53l5an+zTeKOYNbPWsdxDkQHNXI0qxmZNdNngDgshd1mYYhidunrrGwY3P9XW7YxroIOEev71sW1BYQ1g8gz7iZJ6tWVlricSvOrhAghNdhWN/k4eGNkVLbINGlwSzGnBmgKfhueokvyL+S66lv6n91xYc6Gz2GpWnG0QsAZbr5NllwLuW/VlaCjxq76eBjItsGKDdU3sFJBB+mOCexIpBeK7Sded6KW5+7aeCZvUZrJGqv+I1x6AdIZfTSSy
 }
