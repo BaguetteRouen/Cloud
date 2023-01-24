@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_security_group" "minecraft_sg" {
   name        = "minecraft_sg"
   description = "Security group for Minecraft servers"
