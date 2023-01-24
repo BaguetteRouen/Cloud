@@ -14,6 +14,58 @@ resource "aws_security_group" "minecraft_sg" {
   }
 }
 
+#CloudWatch
+
+#RAM
+resource "aws_cloudwatch_metric_alarm" "RAM" {
+  alarm_name                = "Alerte RAM 70% d'utilisation"
+  comparison_operator       = "GreaterThanOrEqualToThreshold"
+  evaluation_periods        = "2"
+  metric_name               = "MemoryUtilization"
+  namespace                 = "AWS/EC2"
+  period                    = "60"
+  statistic                 = "SampleCount"
+  threshold                 = "70"
+  alarm_description         = "This metric monitors ec2 ram utilization"
+alarm_actions  =  [aws_sns_topic.RAM.arn]
+}
+
+resource "aws_sns_topic" "RAM" {
+  name = "RAM_alerte"
+}
+
+resource "aws_sns_topic_subscription" "RAM_Alerte" {
+  topic_arn = aws_sns_topic.RAM.arn
+  protocol  = "email"
+  endpoint  = "jules.hautcoeur@viacesi.fr"
+}
+
+#CPU
+resource "aws_cloudwatch_metric_alarm" "CPU_Alerte" {
+  alarm_name                = "Alerte RAM 70% d'utilisation"
+  comparison_operator       = "GreaterThanOrEqualToThreshold"
+  evaluation_periods        = "2"
+  metric_name               = "CPUUtilization"
+  namespace                 = "AWS/EC2"
+  period                    = "60"
+  statistic                 = "SampleCount"
+  threshold                 = "70"
+  alarm_description         = "This metric monitors ec2 ram utilization"
+alarm_actions  =  [aws_sns_topic.CPU.arn]
+}
+
+resource "aws_sns_topic" "CPU" {
+  name = "CPU_alerte"
+}
+
+resource "aws_sns_topic_subscription" "CPU_Alerte" {
+  topic_arn = aws_sns_topic.CPU.arn
+  protocol  = "email"
+  endpoint  = "jules.hautcoeur@viacesi.fr"
+}
+
+#fin CloudWatch
+
 resource "aws_key_pair" "minecraft_key" {
   key_name   = "minecraft_key"
   public_key = ASIA4NX53ALYB4GWAA64
