@@ -14,6 +14,19 @@ resource "aws_security_group" "minecraft_sg" {
   }
 }
 
+resource "aws_vpc" "vpc_MC_G3" {
+  cidr_block = "10.0.0.0/16"
+
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name    = "main"
+    build   = "terraform"
+    project = "MC_G3"
+  }
+}
+
 #CloudWatch
 
 #RAM
